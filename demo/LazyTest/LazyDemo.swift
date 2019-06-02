@@ -16,6 +16,8 @@ class Employee {
             return salary+bonus
         }
  //if we used setter and set net sal it self it gives bad access
+ //computed property with getter only is read only computed property
+        
     }
     //lazy must be var
     //lazy is initialized and takes value only when it is accessed not with creating the object

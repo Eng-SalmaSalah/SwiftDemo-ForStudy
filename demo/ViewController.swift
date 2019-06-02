@@ -349,8 +349,7 @@ class ViewController: UIViewController {
         var employee = Employee()
         print(employee)
         print(employee.netSal)
-        employee.netSal=10
-        print(employee.netSal)
+
 
         //by debug:
         /*
@@ -358,6 +357,51 @@ class ViewController: UIViewController {
          salary    Int    10000
          bonus.storage    Double?    nil    none (nil because it is lazy not used)
          */
+        
+        //-----------------------------------------------------------------
+        //property observers : detect changing stored or computer property
+        //we can use (willSet : called just before the property is set) or
+        //(didSet : called just after the property is set)
+        //we can use didSet only or willSet only or both
+        
+        //stored property with observer
+        var changingVar : Int = 5{
+            willSet{
+                print("property will be set to \(newValue)") // newValue is the assigned new value to the property and can be used only in willSet
+            }
+            didSet{
+                print("property was changed from \(oldValue) to \(changingVar) ")//old value is the old value before assigning new value and it is used only in didSet
+            }
+        }
+        
+        changingVar = 8
+        
+
+        
+        /*
+         hint to mySelf :
+         Stored property:
+            var x : Int = 5
+         
+         computedProperty:
+            var x : Int{
+            get{
+                return x*10
+            }
+            set{
+         
+            }
+         }
+         
+         property with Observer:
+         var x:Int=10{
+         willSet{}
+         didSet{}
+         }
+         
+         */
+        
+        
     }
     //-------variadic params-----------
     func variadicTest (numbers:Double ...){
