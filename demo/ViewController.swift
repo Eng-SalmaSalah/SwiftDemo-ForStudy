@@ -13,6 +13,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //type alias
+        typealias m7mden = Int
+        var numX:m7mden = 0
+        print(numX)
+        //-------------------------------------------------------------------
+        //arrays
+        var array = [String]()
+        var definedArray = [String](repeatElement("soso", count: 5))
+        //definedArray[3...4]=["koki"]
+       
+
+        print(definedArray)
+        var array1 : [String]?
+        
+        
+        // dictionary
+        var dictTest = [String:Int]()
+        
+        //-------------------------------------------------------------------
         items = [1,2,3]
         
         
@@ -177,11 +196,14 @@ class ViewController: UIViewController {
         var _ : Optional<String> = .none
         var _ : Optional<String> = .some("ahmed")
         
+        var implicitlyUnwrapped:String! = "salma"//lw 7tet ! bdl ? w ana b3rf l optional da kda esmo implicitly unwrapped msh b7tag a3ml unwrapping w ana bst5dmo
+        print(implicitlyUnwrapped)
+        
         //unwraping
         // 1) !->forceunwrap
         //print(myName!)
         
-        // 2) safe unwraping by assign
+        // 2) safe unwraping by assign (optional binding)
         //using if
         if var check = myName {
             print("has value",check)
@@ -214,6 +236,15 @@ class ViewController: UIViewController {
         
         //-------------------------------------------
         //closure
+        
+        usingClosure { (name) in
+            print(name)
+        }
+        var x2 = testClosures { (name) -> Int in
+            return 10
+        }
+        print(x2)
+        
         var closureBody = {(name:String)->Void in
             print("hi\(name)")
             print("soso")
@@ -238,10 +269,128 @@ class ViewController: UIViewController {
         //use the instance defined globally in appdelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         print(appDelegate.sharedUser?.id ?? 0)
+        
+        
+        
+        //---------------------------------------------------------------------
+        
+        //test retain cycle:
+        var salma : Owner?
+        var buildingA : Appartment?
+        salma = Owner(name: "salma")
+        print(salma?.prettyPrint())
+        buildingA = Appartment(name: "buildingA")
+        salma!.appartment=buildingA
+        buildingA!.owner=salma
+        salma=nil
+        buildingA=nil
+
+        /*
+         explanation: if we did so only initializers are called,no deallocation took place
+         so retain cycle happend .. why ?
+         the instance -> Owner(name : "salma") has RC = 2 because:
+            1) salma has strong ref to it
+            2) [(Appartment(name :"buildingA").owner] has strong ref to it
+         
+         also, the instance Appartment(name : "buildingA") has RC = 2 because :
+            1) buildingA has strong refrence to it
+            2) [Owner(name : "salma").appartment] has strong refrence to it
+         
+         so: although salma is nil and buildingA is nil rc of both is still 1 so they are not deallocated
+         
+         solution : is to make weak refrences in one of the two classes
+         how it was solved ?
+         
+         we added weak in appartment to its refrence to the owner so
+         Owner(name: "salma") has RC = 1 (due to salma pointing to it)
+         when salma = nil -> Owner(name: "salma") has rc=0 and deallocated
+         
+         Appartment(name : "buildingA") had RC = 2 due to buildingA and [(Owner(name: "salma")].Appartment
+         Owner(name: "salma") is now nil //Appartment(name : "buildingA")  RC = 1
+         when buildingA = nil //Appartment(name : "buildingA")  RC = 0
+         
+         so //Appartment(name : "buildingA")  is deallocated
+         
+         weak and unowned are almost the same
+         but if we used weak -> we have to define the refrence as optional
+         but unowned not but should be initialized in init
+         we use unowned if the two classes are dependent on each other so optional is not valid
+         for example : the relation between employee and id
+         use unowned lw damn en l 7aga l bshawr 3leha d 3omrha ma htkon b nil
+         */
+        //---------------------------------------------------------
+        //func with default value in parameters may be called without this param
+
+        //test neglecting external name
+        sayHello("ali")
+        
+        //function type as params
+        let mathFunc : (Int,Int)->Int = addTwoInts(a:b:)
+        receiveFuncType(mathFunction: mathFunc, num1: 10, num2: 20)
+        
+        //test variadic func
+        variadicTest(numbers: 5.5,6.5,7.5)
+        
+        //inout test
+        var var1 : Int = 6
+        var var2 : Int = 60
+        swap(num1: &var1, num2: &var2)
+        print(var1)
+        print(var2)
+        
+        //-------------------------------------------------------------
+        //subscripts: Used to access elements in sequence or list inside class,class,enum
+        var numbers = Numbers()
+        print(numbers[1])
+        numbers[1]=300
+        print(numbers[1])
+        //-------------------------------------------------------------
+        //test Lazy : Lazy is initialized in memory on its first usage not with obj creation
+        var employee = Employee()
+        print(employee)
+        print(employee.netSal)
+        employee.netSal=10
+        print(employee.netSal)
+
+        //by debug:
+        /*
+         name    String    ""
+         salary    Int    10000
+         bonus.storage    Double?    nil    none (nil because it is lazy not used)
+         */
+    }
+    //-------variadic params-----------
+    func variadicTest (numbers:Double ...){
+        var sum:Double=0.0
+        for number in numbers{
+            sum+=number
+        }
+        print(sum)
+    }
+    //-------------inout test--------------
+    func swap (num1: inout Int,num2: inout Int){
+        var temp:Int = 0
+        temp = num1
+        num1 = num2
+        num2 = temp
     }
     
+    //-----------neglect external name-------
     
-    func usingClosure (id:Int,complitionHandler :(String)->Void){
+    func sayHello (_ to:String){
+        print("hello \(to)")
+    }
+    //-----------------function type as params----------------
+    func addTwoInts (a:Int,b:Int)->Int{
+        return a+b
+    }
+    
+    func receiveFuncType (mathFunction : (Int,Int)->Int , num1: Int,num2:Int) {
+       print(mathFunction(num1,num2))
+    }
+    //-----------------------end----------------------------
+    //-----------------------closuresTest--------------------
+    func usingClosure (id:Int=0,complitionHandler :(String)->Void){
         complitionHandler("salma")
     }
     
@@ -249,6 +398,10 @@ class ViewController: UIViewController {
         return errorHandler("salma")
     }
     
+    func testClosures (complitionHandler : (String)->Int) -> Int{
+        return complitionHandler("salma")
+    }
+    //-------------------------end---------------------
     
     func getDimensions()  -> (width:Float,height:Float){
         return (20.5,20.7)
