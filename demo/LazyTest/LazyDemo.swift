@@ -15,9 +15,7 @@ class Employee {
         get{
             return salary+bonus
         }
-        set{
-            self.netSal=newValue
-        }
+ //if we used setter and set net sal it self it gives bad access
     }
     //lazy must be var
     //lazy is initialized and takes value only when it is accessed not with creating the object
