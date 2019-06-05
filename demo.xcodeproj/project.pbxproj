@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		381F76BB22A056DF001627D6 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381F76BA22A056DF001627D6 /* Rectangle.swift */; };
+		381F76BB22A056DF001627D6 /* Rectangle + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381F76BA22A056DF001627D6 /* Rectangle + extensions.swift */; };
 		38271A83228764AE00395000 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38271A82228764AE00395000 /* AppDelegate.swift */; };
 		38271A85228764AE00395000 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38271A84228764AE00395000 /* ViewController.swift */; };
 		38271A88228764AE00395000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38271A86228764AE00395000 /* Main.storyboard */; };
 		38271A8A228764B000395000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38271A89228764B000395000 /* Assets.xcassets */; };
 		38271A8D228764B000395000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38271A8B228764B000395000 /* LaunchScreen.storyboard */; };
+		38A3F6D622A6E1FA00F48E7A /* EnumDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A3F6D522A6E1FA00F48E7A /* EnumDemo.swift */; };
+		38A3F6D822A85E8F00F48E7A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A3F6D722A85E8F00F48E7A /* TableViewController.swift */; };
 		38BF608B22A1D6340017633B /* TestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF608A22A1D6340017633B /* TestProtocol.swift */; };
 		38BF608D22A1D6750017633B /* TestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF608C22A1D6750017633B /* TestImpl.swift */; };
 		38BF608F22A1DCF50017633B /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF608E22A1DCF50017633B /* Square.swift */; };
@@ -22,10 +24,11 @@
 		38BF60BC22A2CED20017633B /* Appartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF60BB22A2CED20017633B /* Appartment.swift */; };
 		38BF60BF22A47A310017633B /* SubscriptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF60BE22A47A310017633B /* SubscriptTest.swift */; };
 		38BF60C222A484930017633B /* LazyDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF60C122A484930017633B /* LazyDemo.swift */; };
+		38BF60C522A4958E0017633B /* inheritance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF60C422A4958E0017633B /* inheritance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		381F76BA22A056DF001627D6 /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		381F76BA22A056DF001627D6 /* Rectangle + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangle + extensions.swift"; sourceTree = "<group>"; };
 		38271A7F228764AE00395000 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38271A82228764AE00395000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38271A84228764AE00395000 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +36,8 @@
 		38271A89228764B000395000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38271A8C228764B000395000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38271A8E228764B000395000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38A3F6D522A6E1FA00F48E7A /* EnumDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDemo.swift; sourceTree = "<group>"; };
+		38A3F6D722A85E8F00F48E7A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		38BF608A22A1D6340017633B /* TestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProtocol.swift; sourceTree = "<group>"; };
 		38BF608C22A1D6750017633B /* TestImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImpl.swift; sourceTree = "<group>"; };
 		38BF608E22A1DCF50017633B /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		38BF60BB22A2CED20017633B /* Appartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appartment.swift; sourceTree = "<group>"; };
 		38BF60BE22A47A310017633B /* SubscriptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptTest.swift; sourceTree = "<group>"; };
 		38BF60C122A484930017633B /* LazyDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyDemo.swift; sourceTree = "<group>"; };
+		38BF60C422A4958E0017633B /* inheritance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inheritance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,8 @@
 		38271A81228764AE00395000 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				38A3F6D422A6E1DF00F48E7A /* enum */,
+				38BF60C322A495660017633B /* inheritance */,
 				38BF60C022A484640017633B /* LazyTest */,
 				38BF60BD22A47A170017633B /* subscripts */,
 				38BF60B822A2CEA40017633B /* Retain Cycle */,
@@ -87,8 +95,17 @@
 				38271A89228764B000395000 /* Assets.xcassets */,
 				38271A8B228764B000395000 /* LaunchScreen.storyboard */,
 				38271A8E228764B000395000 /* Info.plist */,
+				38A3F6D722A85E8F00F48E7A /* TableViewController.swift */,
 			);
 			path = demo;
+			sourceTree = "<group>";
+		};
+		38A3F6D422A6E1DF00F48E7A /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				38A3F6D522A6E1FA00F48E7A /* EnumDemo.swift */,
+			);
+			path = enum;
 			sourceTree = "<group>";
 		};
 		38BF609022A1E9BE0017633B /* protocols */ = {
@@ -104,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				38BF608E22A1DCF50017633B /* Square.swift */,
-				381F76BA22A056DF001627D6 /* Rectangle.swift */,
+				381F76BA22A056DF001627D6 /* Rectangle + extensions.swift */,
 			);
 			path = "protocol required init";
 			sourceTree = "<group>";
@@ -148,6 +165,14 @@
 				38BF60C122A484930017633B /* LazyDemo.swift */,
 			);
 			path = LazyTest;
+			sourceTree = "<group>";
+		};
+		38BF60C322A495660017633B /* inheritance */ = {
+			isa = PBXGroup;
+			children = (
+				38BF60C422A4958E0017633B /* inheritance.swift */,
+			);
+			path = inheritance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +249,8 @@
 				38BF60BF22A47A310017633B /* SubscriptTest.swift in Sources */,
 				38BF608F22A1DCF50017633B /* Square.swift in Sources */,
 				38BF609422A1EC7C0017633B /* Dog.swift in Sources */,
-				381F76BB22A056DF001627D6 /* Rectangle.swift in Sources */,
+				38BF60C522A4958E0017633B /* inheritance.swift in Sources */,
+				381F76BB22A056DF001627D6 /* Rectangle + extensions.swift in Sources */,
 				38271A85228764AE00395000 /* ViewController.swift in Sources */,
 				38BF60BA22A2CEC40017633B /* Owner.swift in Sources */,
 				38BF609722A293B00017633B /* SingletonUser.swift in Sources */,
@@ -233,6 +259,8 @@
 				38BF608B22A1D6340017633B /* TestProtocol.swift in Sources */,
 				38BF60C222A484930017633B /* LazyDemo.swift in Sources */,
 				38BF608D22A1D6750017633B /* TestImpl.swift in Sources */,
+				38A3F6D822A85E8F00F48E7A /* TableViewController.swift in Sources */,
+				38A3F6D622A6E1FA00F48E7A /* EnumDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -113,9 +113,9 @@ class ViewController: UIViewController {
         print(area)
    //-----------------------------------------------------------------------------
         //testing extension on rect class
-        let rect = Rectangle()
-        print(rect.calcPerimeter(length:10,width:20))
-        print(rect.calcArea(length: 10, width: 20))
+//        let rect = Rectangle()
+   //     print(rect.calcPerimeter(length:10,width:20))
+     //   print(rect.calcArea(length: 10, width: 20))
     //-----------------------------------------------------------------------------
 
         //enum
@@ -185,6 +185,10 @@ class ViewController: UIViewController {
         oldItem.switchMySelf()
         print("new:\(oldItem)")
         print("oldCopy \(oldCopy)")
+        
+        
+        var size = Size.xLarge.rawValue
+        print("size is \(size)")
 //-----------------------------------------------------------------------------
 
         //optional
@@ -270,7 +274,29 @@ class ViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         print(appDelegate.sharedUser?.id ?? 0)
         
+        //slides example
+        var names = ["ahmed","salma","sahar","nouran"]
+//        var result = names.sorted { (name1:String  , name2:String) -> Bool in
+//            return name1<name2
+//        }
         
+        //remove data types of params
+//        var result = names.sorted { (s1, s2) -> Bool in
+//            return s1>s2
+//        }
+        
+        //remove the return
+//        var result = names.sorted { (s1, s2)  in
+//            //return s1>s2
+//            s1>s2
+//        }
+        
+        //remove the params and use $ index of param ($ indicates order of params)
+        //also as it is single line of code we can remove return
+        var result = names.sorted {
+            $0 > $1
+        }
+        print("res is:\(result)")
         
         //---------------------------------------------------------------------
         
@@ -359,10 +385,18 @@ class ViewController: UIViewController {
          */
         
         //-----------------------------------------------------------------
-        //property observers : detect changing stored or computer property
+        //property observers : detect changing in property
         //we can use (willSet : called just before the property is set) or
         //(didSet : called just after the property is set)
         //we can use didSet only or willSet only or both
+        
+        /*
+         
+        You can add property observers to any stored properties you define, except for lazy stored properties. You can also add property observers to any inherited property (whether stored or computed) by overriding the property within a subclass. You don’t need to define property observers for nonoverridden computed properties, because you can observe and respond to changes to their value in the computed property’s setter. 
+         
+         */
+        
+        
         
         //stored property with observer
         var changingVar : Int = 5{
@@ -400,6 +434,13 @@ class ViewController: UIViewController {
          }
          
          */
+        
+        //-----------------------------------------------------------------
+        //test inheritance of init
+       // var parent1 = Parent()
+       // var child0 = child()
+        var child1 = child(name: "soso")
+
         
         
     }
@@ -445,6 +486,8 @@ class ViewController: UIViewController {
     func testClosures (complitionHandler : (String)->Int) -> Int{
         return complitionHandler("salma")
     }
+    
+   
     //-------------------------end---------------------
     
     func getDimensions()  -> (width:Float,height:Float){

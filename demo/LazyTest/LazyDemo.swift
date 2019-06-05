@@ -22,4 +22,6 @@ class Employee {
     //lazy must be var
     //lazy is initialized and takes value only when it is accessed not with creating the object
     //lazy is used with stored properties only not computed
+    //cannot have observers ( except in inheritance )
+    //must be initialized not optional
 }
