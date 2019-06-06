@@ -7,6 +7,8 @@
 // this is demo for video three in standford course
 
 import UIKit
+import CoreData
+import Foundation
 
 class ViewController: UIViewController {
     var items = [Int]()
@@ -271,8 +273,8 @@ class ViewController: UIViewController {
         print(SingletonUser.getSharedUser().id)
         
         //use the instance defined globally in appdelegate
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        print(appDelegate.sharedUser?.id ?? 0)
+        let appDelegate1 = UIApplication.shared.delegate as! AppDelegate
+        print(appDelegate1.sharedUser?.id ?? 0)
         
         //slides example
         var names = ["ahmed","salma","sahar","nouran"]
@@ -440,7 +442,77 @@ class ViewController: UIViewController {
        // var parent1 = Parent()
        // var child0 = child()
         var child1 = child(name: "soso")
+//----------------------------------------------------------------
+        
+        
+        
+//COREDATA:
+//never forget to add coredata framework from general in settings or with the project start
+//never forget to import CoreData
+//adding Data:
 
+        //step1:get appDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //step2:get managedContext (NSManagedObjectContext)
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        //step3:Define entity(NSEntityDescription)
+        let entity = NSEntityDescription.entity(forEntityName: "Movie", in: managedContext)
+        
+        //step4:Define NSManagedobject(NSManagedObject)
+        let movie = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        //step5:Set values of NSManaged object
+        movie.setValue(1, forKey: "id")
+        movie.setValue("annabelle", forKey: "name")
+        
+        //step6:Save
+        do{
+            try managedContext.save()
+        }catch let error as NSError {
+            print(error)
+        }
+        
+ //fetching data
+        //step 1 and 2 the same as storing data : appDelegate and from it viewContext
+        
+        //step3: FetchRequest(NSFetchRequest)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Movie")
+        
+        //step4:(optional)->adding predicate (select where)
+        let predicate = NSPredicate(format: "id==%@",1)
+        fetchRequest.predicate=predicate
+        
+        //step5:fetch
+        
+        do{
+            let retrievedMovies = try managedContext.fetch(fetchRequest) //returns array of nsmanaged obj
+            print(retrievedMovies.count)
+            let id = retrievedMovies[0].value(forKey: "id")
+            print(id)
+            let name = retrievedMovies[0].value(forKey: "name")
+            print(name)
+        }catch let error as NSError{
+            print(error)
+        }
+        
+//delete data
+        //step 1 and 2 are the same
+        //step(3) : delete using NSManagedobject
+        
+        //managedContext.delete(<#T##object: NSManagedObject##NSManagedObject#>) //takes NSManagedObject
+
+        //step4:save
+        do{
+            try managedContext.save()
+        }catch let error as NSError{
+            print(error)
+        }
+        
+        
+        
+        
         
         
     }

@@ -15,6 +15,9 @@
 		38271A8D228764B000395000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38271A8B228764B000395000 /* LaunchScreen.storyboard */; };
 		38A3F6D622A6E1FA00F48E7A /* EnumDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A3F6D522A6E1FA00F48E7A /* EnumDemo.swift */; };
 		38A3F6D822A85E8F00F48E7A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A3F6D722A85E8F00F48E7A /* TableViewController.swift */; };
+		38A3F6DC22A86B9200F48E7A /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A3F6DB22A86B9200F48E7A /* NetworkViewController.swift */; };
+		38A3F6DF22A8870900F48E7A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A3F6DE22A8870900F48E7A /* CoreData.framework */; };
+		38A3F6E222A8872B00F48E7A /* coreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38A3F6E022A8872B00F48E7A /* coreData.xcdatamodeld */; };
 		38BF608B22A1D6340017633B /* TestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF608A22A1D6340017633B /* TestProtocol.swift */; };
 		38BF608D22A1D6750017633B /* TestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF608C22A1D6750017633B /* TestImpl.swift */; };
 		38BF608F22A1DCF50017633B /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF608E22A1DCF50017633B /* Square.swift */; };
@@ -38,6 +41,9 @@
 		38271A8E228764B000395000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38A3F6D522A6E1FA00F48E7A /* EnumDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDemo.swift; sourceTree = "<group>"; };
 		38A3F6D722A85E8F00F48E7A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		38A3F6DB22A86B9200F48E7A /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		38A3F6DE22A8870900F48E7A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		38A3F6E122A8872B00F48E7A /* coreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreData.xcdatamodel; sourceTree = "<group>"; };
 		38BF608A22A1D6340017633B /* TestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProtocol.swift; sourceTree = "<group>"; };
 		38BF608C22A1D6750017633B /* TestImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImpl.swift; sourceTree = "<group>"; };
 		38BF608E22A1DCF50017633B /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A3F6DF22A8870900F48E7A /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,8 +71,10 @@
 		38271A76228764AE00395000 = {
 			isa = PBXGroup;
 			children = (
+				38A3F6E022A8872B00F48E7A /* coreData.xcdatamodeld */,
 				38271A81228764AE00395000 /* demo */,
 				38271A80228764AE00395000 /* Products */,
+				38A3F6DD22A8870800F48E7A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +89,7 @@
 		38271A81228764AE00395000 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				38A3F6D922A86B5B00F48E7A /* Networking */,
 				38A3F6D422A6E1DF00F48E7A /* enum */,
 				38BF60C322A495660017633B /* inheritance */,
 				38BF60C022A484640017633B /* LazyTest */,
@@ -106,6 +116,30 @@
 				38A3F6D522A6E1FA00F48E7A /* EnumDemo.swift */,
 			);
 			path = enum;
+			sourceTree = "<group>";
+		};
+		38A3F6D922A86B5B00F48E7A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				38A3F6DA22A86B7100F48E7A /* NSURLSession */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		38A3F6DA22A86B7100F48E7A /* NSURLSession */ = {
+			isa = PBXGroup;
+			children = (
+				38A3F6DB22A86B9200F48E7A /* NetworkViewController.swift */,
+			);
+			path = NSURLSession;
+			sourceTree = "<group>";
+		};
+		38A3F6DD22A8870800F48E7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38A3F6DE22A8870900F48E7A /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		38BF609022A1E9BE0017633B /* protocols */ = {
@@ -249,6 +283,7 @@
 				38BF60BF22A47A310017633B /* SubscriptTest.swift in Sources */,
 				38BF608F22A1DCF50017633B /* Square.swift in Sources */,
 				38BF609422A1EC7C0017633B /* Dog.swift in Sources */,
+				38A3F6E222A8872B00F48E7A /* coreData.xcdatamodeld in Sources */,
 				38BF60C522A4958E0017633B /* inheritance.swift in Sources */,
 				381F76BB22A056DF001627D6 /* Rectangle + extensions.swift in Sources */,
 				38271A85228764AE00395000 /* ViewController.swift in Sources */,
@@ -261,6 +296,7 @@
 				38BF608D22A1D6750017633B /* TestImpl.swift in Sources */,
 				38A3F6D822A85E8F00F48E7A /* TableViewController.swift in Sources */,
 				38A3F6D622A6E1FA00F48E7A /* EnumDemo.swift in Sources */,
+				38A3F6DC22A86B9200F48E7A /* NetworkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +492,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		38A3F6E022A8872B00F48E7A /* coreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				38A3F6E122A8872B00F48E7A /* coreData.xcdatamodel */,
+			);
+			currentVersion = 38A3F6E122A8872B00F48E7A /* coreData.xcdatamodel */;
+			path = coreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 38271A77228764AE00395000 /* Project object */;
 }
